@@ -4,8 +4,9 @@ import os
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.config import Config
+from kivy.uix.widget import Widget
 
 Config.set("graphics", "width", "340")
 Config.set("graphics", "height", "540")
@@ -36,12 +37,12 @@ def create_table_products(cursor):
     )
 
 
-class MainWid(BoxLayout):
+class MainWid(ScreenManager):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        # self.theme_cls.theme_style = "Light"
-        # self.theme_cls.primary_palette = "Orange"
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Orange"
 
         self.APP_PATH = os.getcwd()
         self.DB_PATH = self.APP_PATH + '/my_database.db'
