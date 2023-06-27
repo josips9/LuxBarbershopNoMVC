@@ -1,4 +1,4 @@
 ## Python / Kivy App
 
-Cross platform app for barber shops
+Cross platform app for barbershops
 
