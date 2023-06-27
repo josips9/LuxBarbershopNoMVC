@@ -1,0 +1,144 @@
+<MainWid>:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<StartWid>:
+    MDBoxLayout:
+        adaptive_size: True
+        spacing: "56dp"
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDFillRoundFlatButton:
+            text: 'Kreiranje / ulazak u bazu'
+            pos_hint:
+            on_press: root.create_database()
+
+
+<DatabaseWid>
+    MDScreen:
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDBoxLayout:
+            adaptive_size: True
+        MDScrollView:
+            adaptive_size: True
+            MDGridLayout:
+                id: container
+                cols: 2
+
+<NewDataButton>
+    MDScreen:
+        pos_hint: {"center_x": .5, "center_y": .5}
+        MDBoxLayout:
+            adaptive_size: True
+
+            MDFillRoundFlatButton:
+                text: "Add new barber"
+                on_press: root.create_new_product()
+
+<InsertDataWid>
+    MDScreen:
+
+        MDBoxLayout:
+            adaptive_size: True
+
+
+
+        MDLabel:
+            text: 'Ime'
+        MDTextField:
+            id: ti_ime
+
+        MDLabel:
+            text: 'Prezime'
+        MDTextField:
+            id: ti_prezime
+
+        MDLabel:
+            text: 'Cijena'
+        MDTextField:
+            id: ti_cijena
+
+        MDLabel:
+            text: 'Usluga'
+        MDTextField:
+            id: ti_usluga
+
+        MDBoxLayout:
+            adaptive_size: True
+
+            MDRaisedButton:
+                text: 'Create'
+                pos_hint: {"center_x": .5}
+                on_press: root.insert_data()
+            MDRaisedButton:
+                text: 'Exit'
+                pos_hint: {"center_x": .5}
+                on_press: root.back_to_database()
+
+
+<DataWid>
+    MDScreen:
+
+        data: ''
+        data_id: ''
+
+        MDBoxLayout:
+            MDLabel:
+                size_hint_x: 0.8
+                text: root.data
+            MDRaisedButton:
+                size_hint_x: 0.2
+                text: 'Edit'
+                on_press: root.update_data(root.data_id)
+
+<UpdateDataWid>
+    MDScreen:
+
+        MDBoxLayout:
+            adaptive_size: True
+
+        MDLabel:
+            text: 'Ime'
+        MDTextField:
+            id: ti_ime
+
+        MDLabel:
+            text: 'Prezime'
+        MDTextField:
+            id: ti_prezime
+
+        MDLabel:
+            text: 'Cijena'
+        MDTextField:
+            id: ti_cijena
+
+        MDLabel:
+            text: 'Usluga'
+        MDTextField:
+            id: ti_usluga
+
+        MDBoxLayout:
+            adaptive_size: True
+
+            MDRaisedButton:
+                text: 'Create'
+                pos_hint: {"center_x": .5}
+                on_press: root.update_data()
+            MDRaisedButton:
+                text: 'Create'
+                pos_hint: {"center_x": .5}
+                on_press: root.update_data()
+            MDBoxLayout:
+                MDRaisedButton:
+                    text: 'Exit'
+                    pos_hint: {"center_x": .5}
+                    on_press: root.back_to_database()
+
+
+
+
